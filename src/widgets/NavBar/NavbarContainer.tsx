@@ -14,8 +14,8 @@
  *
  */
 import React, { useEffect } from "react";
-import Navbar from "@widgets/Navbar/Navbar";
-import NavbarThumbnails from "@widgets/Navbar/NavbarThumbnails";
+import Navbar from "@widgets/NavBar/Navbar";
+import NavbarThumbnails from "@widgets/NavBar/NavbarThumbnails";
 
 const NavbarContainer = () => {
   useEffect(() => {

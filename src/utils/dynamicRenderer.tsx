@@ -7,7 +7,7 @@ import Grid4 from '@widgets/Grid4/index';
 import Products from '@widgets/Products/index';
 import SingleBanner from '@widgets/SingleBanner/view';
 import GridR2R4 from '@widgets/GridR2R4/view';
-import NavBarContainer from '@widgets/Navbar/NavbarContainer';
+import NavBarContainer from '@widgets/NavBar/NavbarContainer';
 
 const components: Record<string, React.ElementType> = {
   TapeBanner,
