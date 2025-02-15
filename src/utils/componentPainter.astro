@@ -4,25 +4,40 @@ import DynamicRenderer from '@utils/dynamicRenderer';
 // JSON data (Replace this with an API fetch if needed)
 const data = [
   {
-    "component": "Header",
-    "props": { "title": "Welcome to Astro!" },
-    "directive": "client:idle"
+    component: 'Header',
+    props: { title: 'Welcome to Astro!' },
+    directive: 'load', // Use directive names without "client:"
   },
   {
-    "component": "BannerCarousel",
-    "props": { "images": ["banner1.jpg", "banner2.jpg"] },
-    "directive": "client:visible"
+    component: 'NavBarContainer',
+    props: { title: 'Welcome to Astro!' },
+    directive: 'load',
   },
   {
-    "component": "Products",
-    "props": { "category": "electronics" },
-    "directive": "client:visible"
+    component: 'BannerCarousel',
+    props: { images: ['banner1.jpg', 'banner2.jpg'] },
+    directive: 'visible',
   },
   {
-    "component": "Footer",
-    "props": { "text": "© 2025 My Site" },
-    "directive": "client:visible"
-  }
+    component: 'Products',
+    props: { category: 'electronics' },
+    directive: 'idle',
+  },
+  {
+    component: 'Footer',
+    props: { text: '© 2025 My Site' },
+    directive: 'load',
+  },
 ];
 ---
-<DynamicRenderer components={data} client:idle />
+
+{data.map((item) => {
+  return (
+    <DynamicRenderer
+      components={[item]}
+      client:load={item.directive === 'load'}
+      client:idle={item.directive === 'idle'}
+      client:visible={item.directive === 'visible'}
+    />
+  );
+})}

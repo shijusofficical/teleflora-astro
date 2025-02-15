@@ -18,7 +18,7 @@ const components: Record<string, React.ElementType> = {
   Products,
   SingleBanner,
   GridR2R4,
-  NavBarContainer
+  NavBarContainer,
 };
 
 interface ComponentData {
@@ -42,6 +42,7 @@ const DynamicRenderer: React.FC<Props> = ({ components: componentList }) => {
           return null;
         }
 
+        // Render the component with its props
         return <Component key={index} {...item.props} />;
       })}
     </>
