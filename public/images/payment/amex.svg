@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="32" height="32" transform="translate(0.412 0.957)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-amex">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="amex" clip-path="url(#clip-amex)">
+    <g id="amex-american-express-seeklogo.com_1" data-name="amex-american-express-seeklogo.com 1" transform="translate(-0.412 -0.957)" clip-path="url(#clip-path)">
+      <g id="Page_1" data-name="Page 1" transform="translate(0.412 0.957)">
+        <g id="amex_american_express_seeklogo.com" data-name="amex american express seeklogo.com">
+          <path id="Fill_1" data-name="Fill 1" d="M.412,32.957h32v-32h-32Z" transform="translate(-0.412 -0.957)" fill="#016fd0" fill-rule="evenodd"/>
+          <path id="Fill_2" data-name="Fill 2" d="M10.658,26.1V14.629l20.408.018v3.167l-2.359,2.521,2.359,2.544v3.234H27.3l-2-2.208-1.987,2.217Z" transform="translate(0.935 0.84)" fill="#fffffe" fill-rule="evenodd"/>
+          <path id="Fill_3" data-name="Fill 3" d="M11.861,24.693V15.746h7.587v2.061h-5.13v1.4h5.008v2.027H14.318v1.374h5.13v2.086Z" transform="translate(1.093 0.987)" fill="#016fd0" fill-rule="evenodd"/>
+          <path id="Fill_4" data-name="Fill 4" d="M18.535,24.693l4.2-4.479-4.2-4.468h3.249l2.565,2.836,2.572-2.836h3.109v.07l-4.108,4.4,4.108,4.352v.127H26.891L24.28,21.829,21.7,24.693Z" transform="translate(1.97 0.987)" fill="#016fd0" fill-rule="evenodd"/>
+          <path id="Fill_5" data-name="Fill 5" d="M12.086,5.637H17L18.733,9.56V5.637h6.073l1.047,2.939L26.9,5.637h4.637V17.1H7.033Z" transform="translate(0.458 -0.342)" fill="#fffffe" fill-rule="evenodd"/>
+          <path id="Fill_6" data-name="Fill 6" d="M12.782,6.734l-3.97,8.94h2.723l.749-1.79h4.058l.748,1.79h2.791l-3.953-8.94Zm.341,5.143,1.191-2.846,1.19,2.846Z" transform="translate(0.692 -0.198)" fill="#016fd0" fill-rule="evenodd"/>
+          <path id="Fill_7" data-name="Fill 7" d="M18.563,15.674V6.734l3.827.013,1.969,5.5,1.982-5.509h3.684v8.94l-2.37.021V9.554l-2.237,6.12H23.254L20.97,9.533v6.141Z" transform="translate(1.974 -0.198)" fill="#016fd0" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

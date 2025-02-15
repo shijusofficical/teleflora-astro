@@ -1,0 +1,147 @@
+.login-panel {
+  width: 100% !important;
+  max-width: 430px;
+  z-index: 1070;
+
+  .offcanvas-close {
+    padding: 2rem 2rem 0.5rem;
+
+    @include media-breakpoint-down(md) {
+      padding: 1.25rem 1.25rem 1rem;
+    }
+  }
+
+  .offcanvas-header {
+    border-bottom: 1px solid $gray-300;
+    padding: 0 2rem;
+    box-shadow: none;
+
+    @include media-breakpoint-down(md) {
+      padding: 0 1.25rem;
+    }
+  }
+
+  .offcanvas-body {
+    padding: 0;
+
+    .tab-content,
+    .tab-pane {
+      height: 100%;
+    }
+
+    .offcanvas-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 2.5rem;
+    }
+  }
+
+  .offcanvas-footer {
+    flex-direction: column;
+    box-shadow: none;
+
+    @include media-breakpoint-down(md) {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .btn {
+      @include media-breakpoint-down(md) {
+        padding: $btn-padding-y $btn-padding-x;
+      }
+    }
+  }
+
+  .title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-md;
+    }
+  }
+
+  .otp-panel {
+    margin-top: 1rem;
+    padding: 0 2rem;
+
+    @include media-breakpoint-down(md) {
+      padding: 0 1.25rem;
+    }
+  }
+}
+
+.nav-tabs {
+  &.login-tabs {
+    gap: 3.75rem;
+  
+    .nav-link {
+      font-size: $h4-font-size;
+
+      @include media-breakpoint-down(md) {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+}
+
+.social-login {
+  padding: 0 2rem;
+
+  @include media-breakpoint-down(md) {
+    padding: 0 1.25rem;
+  }
+}
+
+.data-panel {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.credential-login {
+  padding: 0 2rem;
+
+  @include media-breakpoint-down(md) {
+    padding: 0 1.25rem;
+  }
+}
+
+.otp-panel {
+  .title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-md;
+    }
+  }
+  
+  .otp {
+    display: flex;
+
+    .form-control {
+      width: 65px;
+      height: 65px;
+      text-align: center;
+      border-radius: 0;
+      border: 2px solid $black;
+      background: $white;
+      padding: 0;
+    }
+  }
+
+  &.sm {
+    .otp {
+      .form-control {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+}
+
+.otp-resend {
+  display: flex;
+  align-items: center;
+}

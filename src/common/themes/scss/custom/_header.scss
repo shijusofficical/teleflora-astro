@@ -1,0 +1,36 @@
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: $header-height-sm;
+  background: $white;
+  z-index: calc($zindex-fixed + 1);
+
+  @include media-breakpoint-up(lg) {
+    height: $header-height;
+  }
+}
+
+.header-notification {
+  position: sticky;
+  top: 0;
+  @include d-flex-center();
+  width: 100%;
+  height: $topbar-height;
+  color: $white;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  background: $black;
+  z-index: calc($zindex-fixed + 1);
+
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-sm;
+  }
+
+  & + header {
+    top: $topbar-height;
+  }
+}

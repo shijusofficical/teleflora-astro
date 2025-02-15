@@ -1,0 +1,226 @@
+.form-control {
+  &.is-invalid {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.input-group {
+  .form-control {
+    border-right: 0;
+
+    &.is-invalid {
+      &+.btn {
+        border-color: $form-invalid-border-color;
+      }
+    }
+  }
+
+  .btn {
+    border-top-right-radius: $border-radius-sm !important;
+    border-bottom-right-radius: $border-radius-sm !important;
+
+    &.btn-light {
+      color: $gray-600;
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+  .input-group-text {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &.phone {
+    .input-group-text,
+    .dropdown {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 32px;
+        background: $gray-400;
+        z-index: 6;
+      }
+    }
+    
+    .dropdown-toggle {
+      border-radius: 0 !important;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .form-control {
+      border-top-right-radius: $input-border-radius !important;
+      border-bottom-right-radius: $input-border-radius !important;
+    }
+  }
+
+  &.password {
+    .form-control {
+      background-image: none;
+    }
+
+    & + .hint {
+      margin-top: 0;
+      background: transparent;
+      padding: 1rem 0.5rem;
+    }
+  }
+
+  &.is-invalid {
+    position: relative;
+    z-index: 2;
+
+    .input-group-text,
+    .form-control {
+      position: relative;
+      z-index: 2;
+      border-width: 1px;
+      border-style: solid;
+      border-color: $form-invalid-border-color !important;
+    }
+
+    .form-control {
+      border-left: 0;
+
+      &:first-child {
+        border-right: 0;
+        border-left: 1px solid $form-invalid-border-color !important;
+        
+        &:focus {
+          & + .input-group-text {
+            border-left: 0;
+          }
+        }
+      }  
+    }
+  }
+}
+
+.invalid-feedback {
+  border-radius: $input-border-radius;
+  margin-top: -0.5rem;
+  padding: 1.25rem 1rem 0.75rem;
+}
+
+.password-requirement {
+  display: flex;
+  align-items: center;
+}
+
+.currency-input {
+  position: relative;
+
+  .currency {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    display: none;
+    color: $gray-600;
+
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-sm;
+      left: 0.5rem;
+    }
+  }
+
+  .form-control {
+    color: $gray-600;
+    padding: $input-btn-padding-y 0.75rem;
+
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-sm;
+      padding: 0.5rem 0.75rem;
+    }
+
+    &.active {
+      padding-left: 3rem;
+
+      @include media-breakpoint-down(lg) {
+        padding-left: 2.25rem;
+      }
+
+      &+.currency {
+        display: block;
+      }
+    }
+  }
+}
+
+.find-search {
+  position: relative;
+
+  .btn {
+    position: absolute;
+    right: 0;
+    @include d-flex-center;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding-right: 0;
+  }
+  
+  .btn-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 2.5rem;
+  }
+
+  .form-control {
+    height: 48px;
+    font-family: $font-family-base;
+    background-color: transparent;
+    border: none;
+    border-bottom:1px solid $gray-400 ;
+    border-radius: 0;
+    padding-right: 3.5rem;
+    padding-left: 0;
+
+    @include media-breakpoint-down(md) {
+      height: 40px;
+    }
+  }
+}
+
+.dropdown-menu {
+  &.faq {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    background: $white;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+    max-height: 29.3rem;
+    overflow-y: auto;
+    border: 1px solid $gray-100;
+
+    @include media-breakpoint-down(md) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .dropdown-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid $gray-400;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: transparent;
+      }
+    }  
+  }
+}

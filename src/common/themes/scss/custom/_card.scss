@@ -1,0 +1,135 @@
+.card {
+  &.card-form-check {
+    height: 66px;
+    border-color: $gray-200;
+    border-radius: $border-radius-lg;
+    padding: 0 1.25rem;
+    transition: $transition-base;
+
+    @include media-breakpoint-down(md) {
+      padding: 0 0.75rem;
+    }
+
+    .card-form-image {
+      display: flex;
+      align-items: center;
+      height: 22px;
+      margin-left: 1.5rem;
+
+      @include media-breakpoint-down(md) {
+        margin-left: 0.5rem;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      img {
+        @include media-breakpoint-down(md) {
+          max-width: 24px;
+        }
+      }
+    }
+
+    &.disabled {
+      height: auto;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      .form-check {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .card-form-image {
+        img {
+          opacity: 0.6;
+
+          @include media-breakpoint-down(md) {
+            max-width: 24px;
+          }
+        }
+      }
+
+      & + .invalid-feedback {
+        display: block;
+        width: auto;
+        color: $gray-600;
+        border-radius: $border-radius-lg;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background: $gray-100;
+        margin: 0;
+        padding: 0.5rem 1.25rem;
+      }
+    }
+
+    &.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    & + .collapse,
+    & + .collapsing {
+      .card-form-content {
+        border: 1px solid $gray-200;
+        border-top: 0;
+        padding: 2.25rem;
+
+        @include media-breakpoint-down(md) {
+          border: 0;
+          padding: 2.25rem 0.75rem;
+        }
+      }
+    }
+  }
+
+  &.address {
+    height: 100%;
+    min-height: 144px;
+
+    .form-check-label {
+      font-weight: $font-weight-medium;
+    }
+  
+    .text {
+      p {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+
+  &.pay-card {
+    height: 100%;
+    min-height: 144px;
+
+    @include media-breakpoint-down(md) {
+      border-color: $gray-200;
+    }
+
+    .cvv {
+      max-width: 150px;
+    }
+
+    .form-check-label {
+      font-weight: $font-weight-bold;
+    }
+
+    &.disabled {
+      height: calc(100% - 40px);
+      border-bottom: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      & + .invalid-feedback {
+        display: block;
+        border-radius: $border-radius-lg;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-top: 0;
+        background: $gray-100;
+        padding: 0.75rem 1.25rem;
+      }
+    }
+  }
+}

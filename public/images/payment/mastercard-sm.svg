@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="13.6" viewBox="0 0 22 13.6">
+  <defs>
+    <clipPath id="clip-mastercard-sm">
+      <rect width="22" height="13.6"/>
+    </clipPath>
+  </defs>
+  <g id="mastercard-sm" clip-path="url(#clip-mastercard-sm)">
+    <g id="icons_mastercard-icon" data-name="icons/mastercard-icon" transform="translate(-5 -9)">
+      <g id="Group_5" data-name="Group 5">
+        <path id="Fill_1" data-name="Fill 1" d="M13.026,21.065h5.949V10.375H13.026Z" fill="#e26231" fill-rule="evenodd"/>
+        <path id="Fill_3" data-name="Fill 3" d="M13.4,15.8A6.787,6.787,0,0,1,16,10.454a6.8,6.8,0,1,0,0,10.69A6.787,6.787,0,0,1,13.4,15.8Z" fill="#d92832" fill-rule="evenodd"/>
+        <path id="Fill_4" data-name="Fill 4" d="M27,15.8a6.8,6.8,0,0,1-11,5.345,6.8,6.8,0,0,0,0-10.69A6.8,6.8,0,0,1,27,15.8Z" fill="#ed963c" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>

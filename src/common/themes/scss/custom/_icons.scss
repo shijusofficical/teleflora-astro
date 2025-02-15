@@ -1,0 +1,52 @@
+.icon {
+  &.lg {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+
+  &.xmd {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+  }
+
+  &.md {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+  }
+
+  &.sm {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+  }
+
+  &.xs {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 12px;
+  }
+
+  &.xxs {
+    width: 10px;
+    height: 10px;
+  }
+
+  &.fill-success {
+    fill: $success;
+
+    .fill {
+      fill: $success;
+    }
+  }
+  
+  &.fill-danger {
+    fill: $danger;
+
+    .fill {
+      fill: $danger;
+    }
+  }
+}
