@@ -15,7 +15,7 @@
  */
 
 import React from "react";
-import NavPrimaryThumbnails from "@widgets/Navbar/NavPrimaryThumbnails";
+import NavPrimaryThumbnails from "@widgets/NavBar/NavPrimaryThumbnails";
 
 const NavbarThumbnails = () => (
   <>

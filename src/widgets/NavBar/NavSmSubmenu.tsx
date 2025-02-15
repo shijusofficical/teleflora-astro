@@ -9,8 +9,6 @@
  *
  * @author Valoriz UI Team
  */
-
-import React from "react";
 import IconArrowLeft from "@icons/IconArrowLeft";
 
 const NavSmSubmenu = ({ show, hideMenu }) => {
