@@ -14,7 +14,7 @@
  *
  */
 
-import NavPrimary from "./NavPrimary";
+import NavPrimary from "@widgets/NavBar/NavPrimary";
 
 const Navbar = () => (
   <>
