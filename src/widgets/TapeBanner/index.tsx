@@ -12,12 +12,12 @@
 
 
 
-const TapeBanner = () => {
+const TapeBanner = ({ data }: { data: any }) => {
   return (
     <div className="header-notification">
       <div className="container-fluid">
         <div className="row text-center">
-          <div className="col-12">Welcome! Enjoy 10% Off!</div>
+          <div className="col-12">{data?.announcement?.title}</div>
         </div>
       </div>
     </div>

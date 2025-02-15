@@ -1,13 +1,13 @@
-const SingleBannerView = () => {
+const SingleBannerView = ({ data }: { data: any }) => {
   return (
     <div className="my-16">
       <div className="promotional-banner-panel">
         <div className="container">
           <div className="promotional-banner lg">
             <div className="promo-image">
-              <a href="/">
-                <img src="/images/dummy/promo-banner.webp" width={1344} height={660} alt="" className="d-none d-md-block" />
-                <img src="/images/dummy/promo-banner-sm.webp" width={800} height={800} alt="" className="d-md-none" />
+              <a href={data?.link}>
+                <img src={data?.backgroundImage?.md?.url} width={data?.backgroundImage?.md?.width} height={data?.backgroundImage?.md?.height} alt="" className="d-none d-md-block" />
+                <img src={data?.backgroundImage?.sm?.url} width={data?.backgroundImage?.sm?.width} height={data?.backgroundImage?.md?.height} alt="" className="d-md-none" />
               </a>
             </div>
           </div>

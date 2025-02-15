@@ -1,59 +1,16 @@
 ---
 import DynamicRenderer from '@utils/dynamicRenderer';
-
-// JSON data (Replace this with an API fetch if needed)
-const data = [
-  {
-    component: 'Header',
-    props: { title: 'Welcome to Astro!' },
-    directive: 'idle', // Use directive names without "client:"
-  },
-  {
-    component: 'NavBarContainer',
-    props: { title: 'Welcome to Astro!' },
-    directive: 'idle',
-  },
-  {
-    component: 'BannerCarousel',
-    props: { images: ['banner1.jpg', 'banner2.jpg'] },
-    directive: 'idle',
-  },
-  {
-    component: 'Products',
-    props: { category: 'electronics' },
-    directive: 'visible',
-  },
-  {
-    component: 'BannerCarousel',
-    props: { images: ['banner1.jpg', 'banner2.jpg'] },
-    directive: 'visible',
-  },
-  {
-    component: 'Products',
-    props: { category: 'electronics' },
-    directive: 'visible',
-  },
-  {
-    component: 'BannerCarousel',
-    props: { images: ['banner1.jpg', 'banner2.jpg'] },
-    directive: 'visible',
-  },
-  {
-    component: 'Footer',
-    props: { text: '© 2025 My Site' },
-    directive: 'visible',
-  },
-];
+const {data, name} = Astro.props;
 ---
-
-{data.map((item) => {
-  if (item.directive === 'load') {
-    return <DynamicRenderer components={[item]} client:load />;
-  } else if (item.directive === 'idle') {
-    return <DynamicRenderer components={[item]} client:idle />;
-  } else if (item.directive === 'visible') {
-    return <DynamicRenderer components={[item]} client:visible />;
-  } else {
-    return <DynamicRenderer components={[item]} />;
+{data[0]?.content?.map((item: any) => {
+  switch (item.directive) {
+    case 'load':
+      return <DynamicRenderer components={[item]} client:load />;
+    case 'idle':
+      return <DynamicRenderer components={[item]} client:idle />;
+    case 'visible':
+      return <DynamicRenderer components={[item]} client:visible />;
+    default:
+      return <DynamicRenderer components={[item]} client:idle />;
   }
 })}

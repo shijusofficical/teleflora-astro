@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
-const BannerCarouselView = () => {
+const BannerCarouselView = ({ data }: { data: any }) => {
+  console.log("carouselData",data?.slides)
   return (
     <div className="hero-banner custom-controls">
       <Swiper
@@ -11,47 +12,32 @@ const BannerCarouselView = () => {
         }}
         loop={true}
         autoplay={{
-          delay: 6000,
+          delay: 9000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
         speed={1000}
         modules={[Autoplay, Navigation]}
       >
-        <SwiperSlide>
-          <div className="hero-item">
-            <a href=" ">
-              <img src="/images/dummy/banner-1.webp" width={1440} height={397} alt="" className="d-none d-md-block" />
-              <img src="/images/dummy/banner-sm-1.webp" width={768} height={890} alt="" className="d-md-none" />
-            </a>
-          </div>
-          <div className="container">
-            <div className="content">
-              <div className="title">
-                CHECK OFF <br /> YOUR LIST
-              </div>
-              <div className="text my-4">Our festive flower arrangements make perfect holiday gifts.</div>
-              <button className="btn btn-primary px-8">SHOP CHRISTMAS</button>
+        {data?.slides?.map((slide):any => (
+          <SwiperSlide>
+            <div className="hero-item">
+              <a href={slide?.link}>
+                <img src={slide?.backgroundImage?.md?.url} width={slide?.backgroundImage?.md?.width} height={slide?.backgroundImage?.md?.height} alt="" className="d-none d-md-block" />
+                <img src={slide?.backgroundImage?.sm?.url} width={slide?.backgroundImage?.md?.width} height={slide?.backgroundImage?.md?.height} alt="" className="d-md-none" />
+              </a>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="hero-item">
-            <a href=" ">
-              <img src="/images/dummy/banner-2.webp" width={1530} height={400} alt="" className="d-none d-md-block" />
-              <img src="/images/dummy/banner-sm-2.webp" width={768} height={890} alt="" className="d-md-none" />
-            </a>
-          </div>
-          <div className="container">
-            <div className="content">
-              <div className="title">
-                CHECK OFF <br /> YOUR LIST
+            <div className="container">
+              <div className="content">
+                <div className="title">
+                  {slide?.title}
+                </div>
+                <div className="text my-4">{slide?.subtitle}</div>
+                <button className="btn btn-primary px-8">{slide?.buttonText}</button>
               </div>
-              <div className="text my-4">Our festive flower arrangements make perfect holiday gifts.</div>
-              <button className="btn btn-primary px-8">SHOP CHRISTMAS</button>
             </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
         <div className="swiper-button-prev swiper-hero-prev" />
         <div className="swiper-button-next swiper-hero-next" />
       </Swiper>

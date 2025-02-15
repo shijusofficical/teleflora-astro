@@ -1,9 +1,18 @@
 ---
 import ComponentPainer from '@utils/componentPainter.astro'
 import Layout from '../layouts/Layout.astro';
-const { blok } = Astro.props
+const myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${import.meta.env.STRAPI_TOKEN}`);
+const requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow"
+};
+console.log("request-headers",import.meta.env.STRAPI_TOKEN);
+const response = await fetch(`${import.meta.env.STRAPI_URL}/home-pages?pLevel=10&locale=en`, requestOptions);
+const responseJson = await response.json();
 ---
 
 <Layout>
-	<ComponentPainer name={"home"}/>
+	<ComponentPainer name={"home"} data={responseJson?.data}/>
 </Layout>

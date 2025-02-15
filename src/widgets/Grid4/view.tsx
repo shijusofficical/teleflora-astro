@@ -14,43 +14,21 @@
 
 
 
-const Grid4View = () => {
+const Grid4View = ({ data }: { data: any }) => {
   return (
     <div className="home-category">
       <div className="container">
         <div className="row justify-content-center gy-8">
-          <div className="col-6 col-md-3">
+          {data?.cards?.map((card):any=>(
+            <div className="col-6 col-md-3">
             <div className="item">
               <div className="item-image">
-                <img src="/images/dummy/same-day.png" width={90} height={90} alt="" />
+                <img src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
               </div>
-              <button className="btn btn-sm btn-outline-primary mt-4">SAME DAY</button>
+              <button className="btn btn-sm btn-outline-primary mt-4">{card?.button?.text}</button>
             </div>
           </div>
-          <div className="col-6 col-md-3">
-            <div className="item">
-              <div className="item-image">
-                <img src="/images/dummy/birthday.png" width={90} height={90} alt="" />
-              </div>
-              <button className="btn btn-sm btn-outline-primary mt-4">BIRTHDAY</button>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="item">
-              <div className="item-image">
-                <img src="/images/dummy/get-well.png" width={90} height={90} alt="" />
-              </div>
-              <button className="btn btn-sm btn-outline-primary mt-4">GET WELL</button>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="item">
-              <div className="item-image">
-                <img src="/images/dummy/sympathy.png" width={90} height={90} alt="" />
-              </div>
-              <button className="btn btn-sm btn-outline-primary mt-4">SYMPATHY</button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
