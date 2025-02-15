@@ -24,6 +24,21 @@ const data = [
     directive: 'visible',
   },
   {
+    component: 'BannerCarousel',
+    props: { images: ['banner1.jpg', 'banner2.jpg'] },
+    directive: 'visible',
+  },
+  {
+    component: 'Products',
+    props: { category: 'electronics' },
+    directive: 'visible',
+  },
+  {
+    component: 'BannerCarousel',
+    props: { images: ['banner1.jpg', 'banner2.jpg'] },
+    directive: 'visible',
+  },
+  {
     component: 'Footer',
     props: { text: '© 2025 My Site' },
     directive: 'visible',
@@ -32,12 +47,13 @@ const data = [
 ---
 
 {data.map((item) => {
-  return (
-    <DynamicRenderer
-      components={[item]}
-      client:load={item.directive === 'load'}
-      client:idle={item.directive === 'idle'}
-      client:visible={item.directive === 'visible'}
-    />
-  );
+  if (item.directive === 'load') {
+    return <DynamicRenderer components={[item]} client:load />;
+  } else if (item.directive === 'idle') {
+    return <DynamicRenderer components={[item]} client:idle />;
+  } else if (item.directive === 'visible') {
+    return <DynamicRenderer components={[item]} client:visible />;
+  } else {
+    return <DynamicRenderer components={[item]} />;
+  }
 })}
