@@ -6,27 +6,27 @@ const data = [
   {
     component: 'Header',
     props: { title: 'Welcome to Astro!' },
-    directive: 'load', // Use directive names without "client:"
+    directive: 'idle', // Use directive names without "client:"
   },
   {
     component: 'NavBarContainer',
     props: { title: 'Welcome to Astro!' },
-    directive: 'load',
+    directive: 'idle',
   },
   {
     component: 'BannerCarousel',
     props: { images: ['banner1.jpg', 'banner2.jpg'] },
-    directive: 'visible',
+    directive: 'idle',
   },
   {
     component: 'Products',
     props: { category: 'electronics' },
-    directive: 'idle',
+    directive: 'visible',
   },
   {
     component: 'Footer',
     props: { text: '© 2025 My Site' },
-    directive: 'load',
+    directive: 'visible',
   },
 ];
 ---
