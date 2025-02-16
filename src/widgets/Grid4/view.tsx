@@ -10,10 +10,6 @@
  *
  * @author  Indrajith C
  */
-
-
-
-
 const Grid4View = ({ data }: { data: any }) => {
   return (
     <div className="home-category">
@@ -23,7 +19,7 @@ const Grid4View = ({ data }: { data: any }) => {
             <div className="col-6 col-md-3">
             <div className="item">
               <div className="item-image">
-                <img src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
+                <img loading="lazy" src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
               </div>
               <button className="btn btn-sm btn-outline-primary mt-4">{card?.button?.text}</button>
             </div>

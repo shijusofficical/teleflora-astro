@@ -11,6 +11,6 @@ const {data, name} = Astro.props;
     case 'visible':
       return <DynamicRenderer components={[item]} client:visible />;
     default:
-      return <DynamicRenderer components={[item]} client:idle />;
+      return <DynamicRenderer components={[item]} client:visible />;
   }
 })}

@@ -10,7 +10,7 @@ const GridR2R4View = ({ data }: { data: any }) => {
             <div className="col-12 col-md-6">
               <div className="promotional-banner shade md">
                 <div className="promo-image">
-                  <img src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
+                  <img loading="lazy" src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
                 </div>
                 <div className="promo-content">
                   <h5 className="title">{card?.title}</h5>
@@ -25,7 +25,7 @@ const GridR2R4View = ({ data }: { data: any }) => {
             <div className="col-6 col-md-3">
               <div className="promotional-banner shade md">
                 <div className="promo-image">
-                  <img src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
+                  <img loading="lazy" src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
                 </div>
                 <div className="promo-content">
                   <h5 className="title">{card?.title}</h5>

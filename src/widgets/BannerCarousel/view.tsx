@@ -19,12 +19,12 @@ const BannerCarouselView = ({ data }: { data: any }) => {
         speed={1000}
         modules={[Autoplay, Navigation]}
       >
-        {data?.slides?.map((slide):any => (
+        {data?.slides?.map((slide,index):any => (
           <SwiperSlide>
             <div className="hero-item">
               <a href={slide?.link}>
-                <img src={slide?.backgroundImage?.md?.url} width={slide?.backgroundImage?.md?.width} height={slide?.backgroundImage?.md?.height} alt="" className="d-none d-md-block" />
-                <img src={slide?.backgroundImage?.sm?.url} width={slide?.backgroundImage?.md?.width} height={slide?.backgroundImage?.md?.height} alt="" className="d-md-none" />
+                <img loading={index != 0 ? "lazy" : "eager"} src={slide?.backgroundImage?.md?.url} width={slide?.backgroundImage?.md?.width} height={slide?.backgroundImage?.md?.height} alt="" className="d-none d-md-block" />
+                <img loading={index != 0 ? "lazy" : "eager"} src={slide?.backgroundImage?.sm?.url} width={slide?.backgroundImage?.md?.width} height={slide?.backgroundImage?.md?.height} alt="" className="d-md-none" />
               </a>
             </div>
             <div className="container">

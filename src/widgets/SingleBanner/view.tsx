@@ -6,8 +6,8 @@ const SingleBannerView = ({ data }: { data: any }) => {
           <div className="promotional-banner lg">
             <div className="promo-image">
               <a href={data?.link}>
-                <img src={data?.backgroundImage?.md?.url} width={data?.backgroundImage?.md?.width} height={data?.backgroundImage?.md?.height} alt="" className="d-none d-md-block" />
-                <img src={data?.backgroundImage?.sm?.url} width={data?.backgroundImage?.sm?.width} height={data?.backgroundImage?.md?.height} alt="" className="d-md-none" />
+                <img loading="lazy" src={data?.backgroundImage?.md?.url} width={data?.backgroundImage?.md?.width} height={data?.backgroundImage?.md?.height} alt="" className="d-none d-md-block" />
+                <img loading="lazy" src={data?.backgroundImage?.sm?.url} width={data?.backgroundImage?.sm?.width} height={data?.backgroundImage?.md?.height} alt="" className="d-md-none" />
               </a>
             </div>
           </div>
