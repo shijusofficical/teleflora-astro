@@ -1,16 +1,17 @@
 ---
 import DynamicRenderer from '@utils/dynamicRenderer';
-const {data, name} = Astro.props;
+const { data } = Astro.props;
+const { body, additionalData} : {body:any, additionalData:any} = data;
 ---
-{data[0]?.content?.map((item: any) => {
+{body?.data?.[0]?.content?.map((item: any) => {
   switch (item.directive) {
     case 'load':
-      return <DynamicRenderer components={[item]} client:load />;
+      return <DynamicRenderer components={[item]} additionalData={additionalData} client:load />;
     case 'idle':
-      return <DynamicRenderer components={[item]} client:idle />;
+      return <DynamicRenderer components={[item]} additionalData={additionalData} client:idle />;
     case 'visible':
-      return <DynamicRenderer components={[item]} client:visible />;
+      return <DynamicRenderer components={[item]} additionalData={additionalData} client:visible />;
     default:
-      return <DynamicRenderer components={[item]} client:visible />;
+      return <DynamicRenderer components={[item]} additionalData={additionalData} client:visible />;
   }
 })}

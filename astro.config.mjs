@@ -1,9 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import compressor from 'astro-compressor';
 import partytown from '@astrojs/partytown';
 
+import playformCompress from '@playform/compress';
+
 export default defineConfig({
-  integrations: [react(), compressor(), partytown()],
+  integrations: [react(), partytown(), playformCompress(),(await import("@playform/compress")).default({
+    CSS: true,
+    HTML: true,
+    Image: true,
+    JavaScript: true,
+    SVG: true,
+  })],
 });

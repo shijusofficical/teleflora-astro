@@ -1,5 +1,5 @@
 import React from 'react';
-import TapeBanner from '@widgets/TapeBanner/index';
+import TapeBanner from '@widgets/TapeBanner/TapeBanner';
 import Header from '@widgets/Header/index';
 import Footer from '@widgets/Footer/index';
 import BannerCarousel from '@widgets/BannerCarousel/view';
@@ -7,7 +7,7 @@ import Grid4 from '@widgets/Grid4/view';
 import Products from '@widgets/Products/index';
 import SingleBanner from '@widgets/SingleBanner/view';
 import GridR2R4 from '@widgets/GridR2R4/view';
-import NavBarContainer from '@widgets/NavBar/NavbarContainer';
+import CategoryProductsLayout from '@widgets/CategoryProducts/CategoryProductsLayout';
 
 const components: Record<string, React.ElementType> = {
   "common.announcement-bar": TapeBanner,
@@ -18,7 +18,7 @@ const components: Record<string, React.ElementType> = {
   "banner.product-banner":Products,
   "banner.single-banner":SingleBanner,
   "grid.six-cards-grid":GridR2R4,
-  NavBarContainer,
+  "banner.category-products":CategoryProductsLayout,
 };
 
 interface ComponentData {
@@ -29,9 +29,11 @@ interface ComponentData {
 
 interface Props {
   components: ComponentData[];
+  additionalData: unknown;
+
 }
 
-const DynamicRenderer: React.FC<Props> = ({ components: componentList }) => {
+const DynamicRenderer: React.FC<Props> = ({ components: componentList, additionalData: additionalData }) => {
   return (
     <>
       {componentList?.map((item, index) => {
@@ -40,7 +42,7 @@ const DynamicRenderer: React.FC<Props> = ({ components: componentList }) => {
           console.warn(`Component "${item.__component}" not found.`);
           return null;
         }
-        return <Component key={index} data={item}/>;
+        return <Component key={index} data={item} additionalData={additionalData}/>;
       })}
     </>
   );

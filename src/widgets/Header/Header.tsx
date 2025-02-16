@@ -22,7 +22,8 @@ import IconSearch from "@icons/IconSearch";
 import SearchList from "@widgets/Header/SearchList";
 import SearchSm from "@widgets/Header/SearchSm";
 
-const Header = () => {
+const Header = ({ data, additionalData }: { data: any, additionalData:any }) => {
+  const navSecondaryData = {phoneNumber: data?.phoneNumber, needHelp: data?.needHelp, intDelivery: data?.internationalDelivery}
   const [showNavigation, setShowNavigation] = useState(true);
   const [navSmVisible, setNavSmVisible] = useState(true);
   const toggleNavigation = () => {
@@ -90,13 +91,13 @@ const Header = () => {
                   onClick={toggleNavigation}
                 />
                 <div className="nav-secondary">
-                  <NavSecondary />
+                  <NavSecondary data={navSecondaryData} />
                 </div>
               </nav>
             </div>
             <div className="col-auto text-center">
               <a className="navbar-brand" href="/">
-                <img src="/images/teleflora-logo.webp" fill={true} alt="" />
+                <img src={data?.logo?.url} fill={true} alt="" />
               </a>
             </div>
             <div className="col d-flex justify-content-end">

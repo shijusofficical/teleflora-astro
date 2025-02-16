@@ -8,11 +8,13 @@ const requestOptions = {
   headers: myHeaders,
   redirect: "follow"
 };
-console.log("request-headers",import.meta.env.STRAPI_TOKEN);
-const response = await fetch(`${import.meta.env.STRAPI_URL}/home-pages?pLevel=10&locale=en`, requestOptions);
-const responseJson = await response.json();
+const bodyContentResponse = await fetch(`${import.meta.env.STRAPI_URL}/home-pages?pLevel=10&locale=en`, requestOptions);
+const bodyContent = await bodyContentResponse.json();
+const navigationResponse = await fetch(`${import.meta.env.STRAPI_URL}/navigation-managements?pLevel=10&locale=en`, requestOptions);
+const navigation = await navigationResponse.json();
+const data = {"body": bodyContent, "additionalData":navigation}
 ---
 
 <Layout>
-	<ComponentPainer name={"home"} data={responseJson?.data}/>
+	<ComponentPainer data={data}/>
 </Layout>

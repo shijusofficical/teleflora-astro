@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
 const BannerCarouselView = ({ data }: { data: any }) => {
-  console.log("carouselData",data?.slides)
   return (
     <div className="hero-banner custom-controls">
       <Swiper

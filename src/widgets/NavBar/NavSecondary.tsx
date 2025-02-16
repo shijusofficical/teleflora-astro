@@ -10,23 +10,23 @@
  * @author Valoriz UI Team
  */
 
-const NavSecondary = () => {
+const NavSecondary = ({ data }: { data: any}) => {
   return (
     <>
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href=" ">
-            International Delivery
+            {data?.intDelivery?.title}
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href=" ">
-            (800) 493-5610
+          {data?.phoneNumber?.title}
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href=" ">
-            Need Help?
+            {data?.needHelp?.title}
           </a>
         </li>
       </ul>
