@@ -12,12 +12,12 @@ import NavBarContainer from '@widgets/NavBar/NavbarContainer';
 const components: Record<string, React.ElementType> = {
   "common.announcement-bar": TapeBanner,
   "common.header":Header,
-  Footer,
+  "common.footer":Footer,
   "carousel.carousel":BannerCarousel,
   "grid.four-card-grid":Grid4,
-  Products,
+  "banner.product-banner":Products,
   "banner.single-banner":SingleBanner,
-  GridR2R4,
+  "grid.six-cards-grid":GridR2R4,
   NavBarContainer,
 };
 
