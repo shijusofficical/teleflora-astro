@@ -1,4 +1,17 @@
 [[headers]]
-  for = "/*"
+for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+  Content-Encoding = "br"
+  Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+for = "/*.css"
+  [headers.values]
+  Content-Encoding = "br"
+  Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+for = "/*.html"
+  [headers.values]
+  Content-Encoding = "br"
+  Cache-Control = "public, max-age=600"
