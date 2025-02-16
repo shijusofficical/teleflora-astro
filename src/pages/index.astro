@@ -16,5 +16,12 @@ const data = {"body": bodyContent, "additionalData":navigation}
 ---
 
 <Layout>
+  <button id="error-button">Throw test error</button>
+  <script>
+    function handleClick () {
+      throw new Error('This is a test error');
+    }
+    document.querySelector("#error-button").addEventListener("click", handleClick);
+  </script>
 	<AstroComponentBuilder data={data}/>
 </Layout>
