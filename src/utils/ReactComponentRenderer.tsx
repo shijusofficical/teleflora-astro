@@ -1,17 +1,17 @@
 import React from 'react';
 import TapeBanner from '@widgets/TapeBanner/TapeBanner';
-import Header from '@widgets/Header/index';
-import Footer from '@widgets/Footer/index';
-import BannerCarousel from '@widgets/BannerCarousel/view';
+import HeaderContainer from '@widgets/Header/HeaderContainer';
+import Footer from '@widgets/Footer/Footer';
+import BannerCarousel from '@widgets/BannerCarousel/BannerCarousel';
 import Grid4 from '@widgets/Grid4/view';
-import Products from '@widgets/Products/index';
-import SingleBanner from '@widgets/SingleBanner/view';
-import GridR2R4 from '@widgets/GridR2R4/view';
+import Products from '@widgets/Products/ProductGrid';
+import SingleBanner from '@widgets/SingleBanner/SingleBanner';
+import GridR2R4 from '@widgets/GridR2R4/GridR2R4';
 import CategoryProductsLayout from '@widgets/CategoryProducts/CategoryProductsLayout';
 
 const components: Record<string, React.ElementType> = {
   "common.announcement-bar": TapeBanner,
-  "common.header":Header,
+  "common.header":HeaderContainer,
   "common.footer":Footer,
   "carousel.carousel":BannerCarousel,
   "grid.four-card-grid":Grid4,

@@ -1,5 +1,5 @@
 ---
-import ComponentPainer from '@utils/componentPainter.astro'
+import AstroComponentBuilder from '@utils/AstroComponentBuilder.astro'
 import Layout from '../layouts/Layout.astro';
 const myHeaders = new Headers();
 myHeaders.append("Authorization", `Bearer ${import.meta.env.STRAPI_TOKEN}`);
@@ -16,5 +16,5 @@ const data = {"body": bodyContent, "additionalData":navigation}
 ---
 
 <Layout>
-	<ComponentPainer data={data}/>
+	<AstroComponentBuilder data={data}/>
 </Layout>

@@ -82,15 +82,6 @@ const NavSm = ({
         <div className="btn-panel mb-5">
           <div className="row align-items-center gx-4">
             <div className="col-5">
-              {/* TODO: Logged in user below */}
-              {/* <button
-                className="nav-link btn-user"
-                onClick={showLogins}
-                id="loginToggleButton"
-              >
-                <span className="nav-icon user-image">TA</span>
-              </button> */}
-              {/* TODO: Logged out user below */}
               <button
                 className="btn btn-outline-primary btn-sm w-100"
                 onClick={showLogins}

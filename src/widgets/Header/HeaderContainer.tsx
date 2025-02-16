@@ -1,7 +1,7 @@
-import HeaderView from "./Header";
+import HeaderView from "@widgets/Header/Header";
 import NavBarContainer from '@widgets/NavBar/NavbarContainer';
 
-const Header = ({ data, additionalData }: { data: any, additionalData:any }) => {
+const HeaderContainer = ({ data, additionalData }: { data: any, additionalData:any }) => {
   return (
     <>
       <HeaderView data={data} additionalData={additionalData}/>;
@@ -10,4 +10,4 @@ const Header = ({ data, additionalData }: { data: any, additionalData:any }) => 
   )
 };
 
-export default Header;
+export default HeaderContainer;

@@ -30,15 +30,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ className }) => {
           </button>
         </div>
       </div>
-      {/* Uncomment this if validation is required */}
-      {/* <div className="invalid-feedback d-block mt-1 pt-3">
-        Please enter a valid e-mail address
-      </div> */}
     </div>
   );
 };
 
-const FooterView: React.FC = () => {
+const FooterView = ({ data, additionalData }: { data: any, additionalData:any }) => {
+  const footerData = additionalData?.data?.find(item => item.title === "footer")
   const [activeCollapse, setActiveCollapse] = useState<number>(0);
   const [isSelectLanguageOpen, setIsSelectLanguageOpen] = useState<boolean>(false);
 
@@ -50,6 +47,21 @@ const FooterView: React.FC = () => {
     setIsSelectLanguageOpen(!isSelectLanguageOpen);
   };
 
+  const transformMenuData = (menuData:any) => {
+    return menuData?.map((menuItem:any, index:number) => {
+      const title = menuItem?.name;
+      const links = menuItem?.subMenu
+        .flatMap((subMenu:any) => subMenu?.subMenu)
+        .map((linkItem) => linkItem?.name);
+      return {
+        title,
+        links,
+        collapseIndex: index + 1,
+      };
+    });
+  }
+  const footerList = transformMenuData(footerData?.menu);
+
   return (
     <footer id="hideFooter">
       <div className="container">
@@ -58,78 +70,7 @@ const FooterView: React.FC = () => {
             <div className="col-12">
               <div className="footer-nav">
                 <div className="row">
-                  {[
-                    {
-                      title: "Our Company",
-                      links: [
-                        "About Us",
-                        "Careers",
-                        "Our Services",
-                        "Partnership Program",
-                        "Affiliate Program",
-                        "Become a Teleflora Florist",
-                        "Feedback",
-                      ],
-                      collapseIndex: 1,
-                    },
-                    {
-                      title: "Flower Guides",
-                      links: [
-                        "Corporate Gifting",
-                        "Floral Facts & Inspiration",
-                        "Gift Giving Guides",
-                        "Sympathy & Funeral Guide",
-                        "Wedding Flower Guide",
-                      ],
-                      collapseIndex: 2,
-                    },
-                    {
-                      title: "Shop Teleflora",
-                      links: [
-                        "Find a Florist",
-                        "Local Flower Delivery",
-                        "Same-Day Flower Delivery",
-                        "International Flower Delivery",
-                        "Send Flowers to Mexico",
-                        "Military Discount",
-                        "First Responders Discount",
-                        "Compra en Español",
-                        "Acheter en Français",
-                      ],
-                      collapseIndex: 3,
-                    },
-                    {
-                      title: "Shop By Category",
-                      links: [
-                        "Valentine's Day Flowers",
-                        "Easter Flowers",
-                        "Mother’s Day Flowers",
-                        "Thanksgiving Flowers",
-                        "Christmas Flowers",
-                        "Funeral & Sympathy",
-                        "Shop by Occasion",
-                        "Birthday Flowers",
-                        "Shop More Holidays",
-                        "Seasonal Bouquets",
-                      ],
-                      collapseIndex: 4,
-                    },
-                    {
-                      title: "Help",
-                      links: [
-                        "Order Status",
-                        "Customer FAQs",
-                        "Order & Delivery Info",
-                        "Chat with an Expert",
-                        "Contact Customer Service",
-                        "Privacy Policy",
-                        "UNSUBSCRIBE",
-                        "Terms of Use",
-                        "Sitemap",
-                      ],
-                      collapseIndex: 5,
-                    },
-                  ].map(({ title, links, collapseIndex }) => (
+                  {footerList?.map(({ title, links, collapseIndex }) => (
                     <div className="col-12 col-lg" key={collapseIndex}>
                       <div className="collapse-item">
                         <h3
