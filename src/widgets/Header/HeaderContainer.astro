@@ -1,0 +1,7 @@
+---
+import HeaderView from '@widgets/Header/Header';
+import NavBarContainer from '@widgets/NavBar/NavbarContainer';
+const { data, additionalData } = Astro.props;
+---
+<HeaderView data={data} additionalData={additionalData} client:visible />
+<NavBarContainer client:visible />
