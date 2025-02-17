@@ -1,0 +1,36 @@
+---
+import TapeBanner from '@widgets/TapeBanner/TapeBanner';
+import HeaderContainer from '@widgets/Header/HeaderContainer.astro';
+import Footer from '@widgets/Footer/Footer';
+import BannerCarousel from '@widgets/BannerCarousel/BannerCarousel';
+import Grid4 from '@widgets/Grid4/view';
+import Products from '@widgets/Products/ProductGrid';
+import SingleBanner from '@widgets/SingleBanner/SingleBanner';
+import GridR2R4 from '@widgets/GridR2R4/GridR2R4';
+import CategoryProductsLayout from '@widgets/CategoryProducts/CategoryProductsLayout';
+const { components: componentList, additionalData } = Astro.props;
+---
+{componentList?.map((item: any, index: number) => {
+  switch (item.__component) {
+    case 'common.announcement-bar':
+      return <TapeBanner data={item} client:visible />;
+    case 'common.header':
+      return <HeaderContainer data={item} additionalData={additionalData}/>;
+    case 'common.footer':
+      return <Footer data={item} additionalData={additionalData} client:visible />;
+    case 'carousel.carousel':
+      return <BannerCarousel data={item} client:visible />;
+    case 'grid.four-card-grid':
+      return <Grid4 data={item}  client:visible />;
+    case 'banner.product-banner':
+      return <Products client:visible />;
+    case 'banner.single-banner':
+      return <SingleBanner data={item} client:visible />;
+    case 'grid.six-cards-grid':
+      return <GridR2R4 data={item} client:visible />;
+    case 'banner.category-products':
+      return <CategoryProductsLayout data={item} client:visible />;
+    default:
+      return;
+  }
+})}
