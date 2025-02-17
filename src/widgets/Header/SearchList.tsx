@@ -1,6 +1,4 @@
-import ListContentDefault from "@widgets/Header/ListContentDefault";
-
-const SearchList = ({ active }) => {
+const SearchList = ({ active }: {active: any}) => {
   return (
     <>
       <div

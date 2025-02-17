@@ -84,6 +84,8 @@ const Header = ({ data, additionalData }: { data: any, additionalData:any }) => 
                     toggleNavigation={toggleNavigation}
                     setShowNavigation={setShowNavigation}
                     setShowLogin={setShowLogin}
+                    data={navSecondaryData}
+                    additionalData={additionalData}
                   />
                 </div>
                 <div

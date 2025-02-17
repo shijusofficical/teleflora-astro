@@ -1,25 +1,6 @@
-/**
- * Copyright(c) 2024 Valoriz Digital Pvt. Ltd.
- *
- * All rights reserved.
- *
- * This software is the confidential and proprietary information of Valoriz
- * ("Confidential Information"). You shall not disclose such Confidential
- * Information and shall use it only in accordance with the terms of the
- * contract agreement you entered into with Valoriz.
- *
- *
- * @author Valoriz UI Team
- *
- */
-
 import IconSearch from "@icons/IconSearch";
-import ListContentDefault from "@widgets/Header/ListContentDefault";
-// import ListContentDefault2 from "@widgets/Header/components/ListContentDefault2";
-// import ListContent from "@widgets/Header/components/ListContent";
-// import ListNoResult from "@widgets/Header/components/ListNoResult";
 
-const SearchSm = ({ isActive, onClose }) => {
+const SearchSm = ({ isActive, onClose }:{isActive:any, onClose:any}) => {
   return (
     <>
       <div className={`search-list ${isActive ? "active" : ""}`}>
@@ -46,13 +27,7 @@ const SearchSm = ({ isActive, onClose }) => {
         </div>
         <div className="list-content-sm">
           <div className="container my-6">
-            <ListContentDefault />
-            {/* <ListContentDefault2 /> */}
           </div>
-          {/* <ListContent /> */}
-          {/* <div className="d-flex flex-column justify-content-center h-100">
-            <ListNoResult />
-          </div> */}
         </div>
       </div>
     </>

@@ -1,17 +1,7 @@
-/**
- * Copyright(c) 2023 Valoriz Digital Pvt. Ltd.
- *
- * All rights reserved.
- *
- * This software is the confidential and proprietary information of Valoriz ("Confidential
- * Information"). You shall not disclose such Confidential Information and shall use it only in
- * accordance with the terms of the contract agreement you entered into with Valoriz.
- *
- * @author Valoriz UI Team
- */
 import IconArrowLeft from "@icons/IconArrowLeft";
+import React from "react";
 
-const NavSmSubmenu = ({ show, hideMenu }) => {
+const NavSmSubmenu = ({ show, hideMenu, data }:{ show:any, hideMenu:any, data:any }) => {
   return (
     <>
       <div className={`nav-submenu ${show ? "show" : ""}`}>
@@ -19,93 +9,39 @@ const NavSmSubmenu = ({ show, hideMenu }) => {
           <IconArrowLeft className="icon sm me-2" />
           Back
         </button>
-        <div className="navbar-image">
-          <img
-            src="/images/navbar/flowers-md.webp"
-            width={603}
-            height={180}
-            alt=""
-          />
-          <div className="content">Flowers</div>
-        </div>
-        <div className="nav-link-list">
-          <a href=" " className="link-item">
-            <span className="item">
-              <span className="nav-link-image">
+        {data?.map((item: any, index: number) => (
+          <React.Fragment key={`navbar_drop${index}`}>
+            <div className="navbar-image">
+              <img
+                src={item?.image?.url}
+                width={item?.image?.width}
+                height={item?.image?.height}
+                alt=""
+              />
+              <div className="content">{item?.name}</div>
+            </div>
+            <div className="nav-link-list">
+              {item?.subMenu?.map((subMenuItem: any, i: any) => (
+                <a href=" " className="link-item" key={`navbar_item_sub${index}`}>
+                  <span className="item">
+                    <span>{subMenuItem?.name}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div className="mt-8">
+              <div className="navbar-image">
                 <img
-                  src="/images/navbar/flowers-1.webp"
-                  width={1080}
-                  height={540}
+                  src={item?.navigationCard?.image?.url}
+                  width={item?.navigationCard?.image?.width}
+                  height={item?.navigationCard?.image?.height}
                   alt=""
                 />
-              </span>
-              <span>Green Flowers</span>
-            </span>
-          </a>
-          <a href=" " className="link-item">
-            <span className="item">
-              <span className="nav-link-image">
-                <img
-                  src="/images/navbar/flowers-2.webp"
-                  width={40}
-                  height={40}
-                  alt=""
-                />
-              </span>
-              <span>Blue Flowers</span>
-            </span>
-          </a>
-          <a href=" " className="link-item">
-            <span className="item">
-              <span className="nav-link-image">
-                <img
-                  src="/images/navbar/flowers-1.webp"
-                  width={40}
-                  height={40}
-                  alt=""
-                />
-              </span>
-              <span>Neutral Flowers</span>
-            </span>
-          </a>
-          <a href=" " className="link-item">
-            <span className="item">
-              <span className="nav-link-image">
-                <img
-                  src="/images/navbar/flowers-2.webp"
-                  width={40}
-                  height={40}
-                  alt=""
-                />
-              </span>
-              <span>Orange Flowers</span>
-            </span>
-          </a>
-          <a href=" " className="link-item">
-            <span className="item">
-              <span className="nav-link-image">
-                <img
-                  src="/images/navbar/flowers-1.webp"
-                  width={40}
-                  height={40}
-                  alt=""
-                />
-              </span>
-              <span>Red Flowers</span>
-            </span>
-          </a>
-        </div>
-        <div className="mt-8">
-          <div className="navbar-image">
-            <img
-              src="/images/navbar/image-md.webp"
-              width={600}
-              height={276}
-              alt=""
-            />
-          </div>
-          <div className="nav-title mt-2">Edit Name</div>
-        </div>
+              </div>
+              <div className="nav-title mt-2">{item?.navigationCard?.title}</div>
+            </div>
+          </React.Fragment>
+        ))}
       </div>
     </>
   );

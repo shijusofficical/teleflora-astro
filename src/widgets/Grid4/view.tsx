@@ -15,8 +15,8 @@ const Grid4View = ({ data }: { data: any }) => {
     <div className="home-category">
       <div className="container">
         <div className="row justify-content-center gy-8">
-          {data?.cards?.map((card):any=>(
-            <div className="col-6 col-md-3">
+          {data?.cards?.map((card:any, index:number):any=>(
+            <div className="col-6 col-md-3" key={`carousel_${index}`}>
             <div className="item">
               <div className="item-image">
                 <img loading="lazy" src={card?.backgroundImage?.url} width={card?.backgroundImage?.width} height={card?.backgroundImage?.height} alt="" />
