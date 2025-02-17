@@ -1,5 +1,5 @@
 ---
-import ReactComponentRenderer from '@utils/ReactComponentRenderer.astro'
+import AstroComponentBuilder from '@utils/AstroComponentBuilder.astro'
 import Layout from '../layouts/Layout.astro';
 const myHeaders = new Headers();
 myHeaders.append("Authorization", `Bearer ${import.meta.env.STRAPI_TOKEN}`);
@@ -16,7 +16,12 @@ const data = {"body": bodyContent, "additionalData":navigation}
 ---
 
 <Layout>
-  {bodyContent?.data?.[0]?.content?.map((item: any) => {
-    return <ReactComponentRenderer components={[item]} additionalData={navigation}/>;
-  })}
+	<AstroComponentBuilder data={data}/>
+  <button id="error-button">Throw test error</button>
+  <script>
+    function handleClick () {
+      throw new Error('This is a test error');
+    }
+    document.querySelector("#error-button").addEventListener("click", handleClick);
+  </script>
 </Layout>

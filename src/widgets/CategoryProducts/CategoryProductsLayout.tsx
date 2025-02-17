@@ -1,6 +1,6 @@
 import CategoryProductItem from "@widgets/CategoryProducts/CategoryProductItem";
 
-const CategoryProductsLayout = ({ data }: { data: any }) => {
+const CategoryProductsLayout = ({ data, additionalData }: { data: any, additionalData:any }) => {
   return (
     <div className="new-arrivals-panel">
       <div className="container">
