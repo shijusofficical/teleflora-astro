@@ -13,23 +13,23 @@ const { components: componentList, additionalData } = Astro.props;
 {componentList?.map((item: any, index: number) => {
   switch (item.__component) {
     case 'common.announcement-bar':
-      return <TapeBanner data={item} client:visible />;
+      return <TapeBanner data={item} client:idle={{timeout: 5000}} />;
     case 'common.header':
       return <HeaderContainer data={item} additionalData={additionalData}/>;
     case 'common.footer':
-      return <Footer data={item} additionalData={additionalData} client:visible />;
+      return <Footer data={item} additionalData={additionalData} client:idle={{timeout: 5000}} />;
     case 'carousel.carousel':
-      return <BannerCarousel data={item} client:visible />;
+      return <BannerCarousel data={item} client:idle={{timeout: 5000}} />;
     case 'grid.four-card-grid':
-      return <Grid4 data={item}  client:visible />;
+      return <Grid4 data={item}  client:idle={{timeout: 5000}} />;
     case 'banner.product-banner':
-      return <Products client:visible />;
+      return <Products client:idle={{timeout: 5000}} />;
     case 'banner.single-banner':
-      return <SingleBanner data={item} client:visible />;
+      return <SingleBanner data={item} client:idle={{timeout: 5000}} />;
     case 'grid.six-cards-grid':
-      return <GridR2R4 data={item} client:visible />;
+      return <GridR2R4 data={item} client:idle={{timeout: 5000}} />;
     case 'banner.category-products':
-      return <CategoryProductsLayout data={item} client:visible />;
+      return <CategoryProductsLayout data={item} client:idle={{timeout: 5000}} />;
     default:
       return;
   }
