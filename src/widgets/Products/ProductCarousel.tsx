@@ -43,11 +43,11 @@ const ProductCarousel = ({productDetails}:{productDetails:any}) => {
                     className="product-image"
                   >
                     <img
-                      src={product?.product?.largeImageUrl}
+                      src={product?.largeImageUrl}
                       width={253}
                       height={301}
                       loading="lazy"
-                      alt={product?.product?.displayName}
+                      alt={product?.displayName}
                     />
                     <button className="btn btn-light btn-favourite" />
                     <button className="btn btn-light btn-rounded">
@@ -57,11 +57,11 @@ const ProductCarousel = ({productDetails}:{productDetails:any}) => {
                 </div>
                 <div className="card-body">
                   <a href="#">
-                    <div className="product-name">{product?.product?.displayName}</div>
+                    <div className="product-name">{product?.displayName}</div>
                   </a>
                   <div className="product-price offer">
-                    <div className="price-original">${(product?.product?.highestSalePrice + 5)?.toFixed(2)}</div>
-                    <div className="price">${product?.product?.lowestSalePrice?.toFixed(2)}</div>
+                    <div className="price-original">${(product?.highestSalePrice + 5)?.toFixed(2)}</div>
+                    <div className="price">${product?.lowestSalePrice?.toFixed(2)}</div>
                   </div>
                 </div>
               </div>

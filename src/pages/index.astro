@@ -35,40 +35,40 @@ const products = bodyContent?.data?.[0]?.content?.filter((item) =>
   item.__component === "banner.category-products"
 );
 const productsWithDetails = await Promise.all(
-  products?.map(async (product: any) => {
-    try {
-      const productIds = product?.productIds || [];
-      
-      const productDetails = await Promise.all(
-        productIds.map(async (id: any) => {
-          try {
-            const response = await fetch(
-              `https://areas-grand-take-contract.trycloudflare.com/rest/model/atg/commerce/catalog/ProductCatalogActor/getProduct?productId=${id}&filterBySite=false&filterByCatalog=false`
-            );
-            if (!response.ok) throw new Error(`Failed to fetch product: ${response.status}`);
-            
-            const productDetail = await response.json();
-            return productDetail?.product ? productDetail : null;
-          } catch (error) {
-            console.error(`Error fetching product ${id}:`, error);
-            return null;
+  products?.map(async (product) => {
+    const productIds = product?.productIds || [];
+
+    const productDetails = await Promise.all(
+      productIds.map(async (id) => {
+        try {
+          const response = await fetch(
+            `https://areas-grand-take-contract.trycloudflare.com/rest/model/atg/commerce/catalog/ProductCatalogActor/getProduct?productId=${id}`
+          );
+          if (!response.ok) {
+            throw new Error(`Failed to fetch product ${id}: ${response.status}`);
           }
-        })
-      );
-      
-      return {
-        ...product,
-        productDetails: productDetails.filter(Boolean)
-      };
-    } catch (error) {
-      console.error(`Error processing product ${product?.id}:`, error);
-      return {
-        ...product,
-        productDetails: [],
-      };
-    }
+
+          const json = await response.json();
+          const { displayName, largeImageUrl, highestSalePrice, lowestSalePrice } = json?.product || {};
+
+          // Return only required fields
+          return displayName && largeImageUrl ? { displayName, largeImageUrl, highestSalePrice, lowestSalePrice } : null;
+
+        } catch (error) {
+          console.error(`Error fetching product ${id}:`, error);
+          return null;
+        }
+      })
+    );
+
+    // Return filtered product with details
+    return {
+      ...product,
+      productDetails: productDetails.filter(Boolean),
+    };
   })
 );
+
 data.productsWithDetails = productsWithDetails;
 
 ---
