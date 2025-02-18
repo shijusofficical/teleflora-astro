@@ -13,6 +13,6 @@ for = "/*.css"
 [[headers]]
 for = "/*.html"
   [headers.values]
-  Cache-Control = "public, max-age=31536000, must-revalidate"
+  Cache-Control = "public, max-age=31536000, immutable"
   Vary = "Accept-Encoding"
 
