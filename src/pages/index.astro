@@ -69,23 +69,23 @@ const productsWithDetails = await Promise.all(
   {bodyContent?.data?.[0]?.content?.map((item:any, index:any) => {
     switch (item.__component) {
       case 'common.announcement-bar':
-        return <TapeBanner data={item} client:load />;
+        return <TapeBanner data={item} client:visible />;
       case 'common.header':
         return <HeaderContainer data={item} additionalData={navigation} />;
       case 'common.footer':
-        return <Footer data={item} additionalData={navigation} client:load />;
+        return <Footer data={item} additionalData={navigation} client:visible />;
       case 'carousel.carousel':
-        return <BannerCarousel  data={item} client:load />;
+        return <BannerCarousel  data={item} client:visible />;
       case 'grid.four-card-grid':
-        return <Grid4 data={item} client:load />;
+        return <Grid4 data={item} client:visible />;
       case 'banner.product-banner':
-        return <Products data={item} productsWithDetails={productsWithDetails} client:load />;
+        return <Products data={item} productsWithDetails={productsWithDetails} client:visible />;
       case 'banner.single-banner':
-        return <SingleBanner data={item} client:load />;
+        return <SingleBanner data={item} client:visible />;
       case 'grid.six-cards-grid':
-        return <GridR2R4 data={item} client:load />;
+        return <GridR2R4 data={item} client:visible />;
       case 'banner.category-products':
-        return <CategoryProductsLayout  data={item} productsWithDetails={productsWithDetails} client:load />;
+        return <CategoryProductsLayout  data={item} productsWithDetails={productsWithDetails} client:visible />;
       default:
         return null;
     }
