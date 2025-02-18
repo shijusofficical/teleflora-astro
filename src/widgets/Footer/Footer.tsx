@@ -97,7 +97,7 @@ const FooterView = ({ data, additionalData }: { data: any, additionalData:any })
           </div>
           <div className="footer-brand">
             <a href="/">
-              <img src="/images/teleflora-logo-sm.webp" width={50} height={50} alt="Teleflora Logo" />
+              <img src="/images/teleflora-logo-sm.webp" width={50} height={50} loading="lazy" alt="Teleflora Logo" />
             </a>
           </div>
           <div className="row my-8">
@@ -113,7 +113,7 @@ const FooterView = ({ data, additionalData }: { data: any, additionalData:any })
                 <div className="row align-items-center g-8 text-center justify-content-center justify-content-lg-start">
                   <div className="col-auto">
                     <a href="#">
-                      <img src="/images/payment/reward.svg" width={230} height={25} alt="Rewards" />
+                      <img src="/images/payment/reward.svg" width={230} height={25} loading="lazy" alt="Rewards" />
                     </a>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const FooterView = ({ data, additionalData }: { data: any, additionalData:any })
                   ))}
                   <div className="col-auto">
                     <a href="https://apps.apple.com/us/app/teleflora-flower-delivery/id6443734812">
-                      <img src="/images/social/app-store.png" width={112} height={46} alt="App Store" />
+                      <img src="/images/social/app-store.png" width={112} height={46} loading="lazy" alt="App Store" />
                     </a>
                   </div>
                 </div>

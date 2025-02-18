@@ -41,6 +41,7 @@ const NavPrimary = ({ additionalData }: { additionalData: any }) => {
                                 width={subMenuItem?.image?.width}
                                 height={subMenuItem?.image?.height}
                                 alt=""
+                                loading="lazy"
                               />
                             </div>
                             <h5 className="nav-title mb-3">
@@ -63,6 +64,7 @@ const NavPrimary = ({ additionalData }: { additionalData: any }) => {
                               width={item?.navigationCard?.image?.width}
                               height={item?.navigationCard?.image?.height}
                               alt=""
+                              loading="lazy"
                             />
                           </div>
                           <div className="row justify-content-between mt-3">

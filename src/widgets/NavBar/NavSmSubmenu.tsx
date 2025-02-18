@@ -17,6 +17,7 @@ const NavSmSubmenu = ({ show, hideMenu, data }:{ show:any, hideMenu:any, data:an
                 width={item?.image?.width}
                 height={item?.image?.height}
                 alt=""
+                loading="lazy"
               />
               <div className="content">{item?.name}</div>
             </div>
@@ -36,6 +37,7 @@ const NavSmSubmenu = ({ show, hideMenu, data }:{ show:any, hideMenu:any, data:an
                   width={item?.navigationCard?.image?.width}
                   height={item?.navigationCard?.image?.height}
                   alt=""
+                  loading="lazy"
                 />
               </div>
               <div className="nav-title mt-2">{item?.navigationCard?.title}</div>

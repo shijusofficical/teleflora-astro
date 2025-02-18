@@ -191,6 +191,7 @@ const NavSm = ({
                                       width={40}
                                       height={40}
                                       alt=""
+                                      loading="lazy"
                                     />
                                   </span>
                                 ):""}
@@ -285,6 +286,7 @@ const NavSm = ({
                     width={112}
                     height={46}
                     alt=""
+                    loading="lazy"
                   />
                 </a>
               </div>
