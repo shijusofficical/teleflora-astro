@@ -79,13 +79,13 @@ const productsWithDetails = await Promise.all(
       case 'grid.four-card-grid':
         return <Grid4 data={item} client:visible />;
       case 'banner.product-banner':
-        return <Products data={item} productsWithDetails={productsWithDetails} client:visible />;
+        return <Products data={item} productsWithDetails={productsWithDetails} client:idle />;
       case 'banner.single-banner':
         return <SingleBanner data={item} client:visible />;
       case 'grid.six-cards-grid':
         return <GridR2R4 data={item} client:visible />;
       case 'banner.category-products':
-        return <CategoryProductsLayout  data={item} productsWithDetails={productsWithDetails} client:visible />;
+        return <CategoryProductsLayout  data={item} productsWithDetails={productsWithDetails} client:idle />;
       default:
         return null;
     }
