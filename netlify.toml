@@ -1,18 +1,5 @@
 [[headers]]
-for = "/*.js"
+for = "/*"
   [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
   Vary = "Accept-Encoding"
-
-[[headers]]
-for = "/*.css"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-  Vary = "Accept-Encoding"
-
-[[headers]]
-for = "/*.html"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-  Vary = "Accept-Encoding"
-
