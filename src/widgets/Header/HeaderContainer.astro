@@ -1,0 +1,16 @@
+---
+import HeaderView from "@widgets/Header/Header";
+import NavPrimary from "@widgets/NavBar/NavPrimary";
+const { data, additionalData } = Astro.props;
+const navigationData = additionalData?.data?.find(
+    (item:any) => item.title === "header"
+  );
+---
+<>
+<HeaderView data={data} additionalData={navigationData} client:visible/>;
+<div id="navbarPanel" class="navbar-panel">
+  <div class="navbar-panel-scroll">
+    <NavPrimary additionalData={navigationData} client:visible/>
+  </div>
+</div>
+</> 

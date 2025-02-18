@@ -32,7 +32,9 @@ const CategoryProductsLayout = ({ data, productsWithDetails }: { data: any, prod
           </div>
           <div className="col-md-9">
           {productData?.map((item:any)=>(
-            <ProductCarousel productDetails={item?.productDetails}/>
+            <>
+              <ProductCarousel productDetails={item?.productDetails}/>
+            </>
           ))}
           </div>
         </div>
