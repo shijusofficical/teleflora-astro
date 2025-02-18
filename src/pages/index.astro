@@ -1,27 +1,78 @@
 ---
-import AstroComponentBuilder from '@utils/AstroComponentBuilder.astro'
+import AstroComponentBuilder from '@utils/AstroComponentBuilder.astro';
 import Layout from '../layouts/Layout.astro';
+import { any, date } from 'astro:schema';
+
 const myHeaders = new Headers();
 myHeaders.append("Authorization", `Bearer ${import.meta.env.STRAPI_TOKEN}`);
+
 const requestOptions = {
   method: "GET",
   headers: myHeaders,
   redirect: "follow"
 };
-const bodyContentResponse = await fetch(`${import.meta.env.STRAPI_URL}/home-pages?pLevel=10&locale=en`, requestOptions);
+
+const [bodyContentResponse, navigationResponse] = await Promise.all([
+  fetch(`${import.meta.env.STRAPI_URL}/home-pages?pLevel=10&locale=en`, requestOptions),
+  fetch(`${import.meta.env.STRAPI_URL}/navigation-managements?pLevel=10&locale=en`, requestOptions)
+]);
+
 const bodyContent = await bodyContentResponse.json();
-const navigationResponse = await fetch(`${import.meta.env.STRAPI_URL}/navigation-managements?pLevel=10&locale=en`, requestOptions);
 const navigation = await navigationResponse.json();
-const data = {"body": bodyContent, "additionalData":navigation}
+
+const data: {
+  body: any;
+  additionalData: any;
+  productsWithDetails: any[];
+} = {
+  body: bodyContent,
+  additionalData: navigation,
+  productsWithDetails: []
+};
+
+const products = bodyContent?.data?.[0]?.content?.filter((item) => 
+  item.__component === "banner.product-banner" || 
+  item.__component === "banner.category-products"
+);
+const productsWithDetails = await Promise.all(
+  products?.map(async (product: any) => {
+    try {
+      const productIds = product?.productIds || [];
+      
+      const productDetails = await Promise.all(
+        productIds.map(async (id: any) => {
+          try {
+            const response = await fetch(
+              `https://areas-grand-take-contract.trycloudflare.com/rest/model/atg/commerce/catalog/ProductCatalogActor/getProduct?productId=${id}&filterBySite=false&filterByCatalog=false`
+            );
+            if (!response.ok) throw new Error(`Failed to fetch product: ${response.status}`);
+            
+            const productDetail = await response.json();
+            return productDetail?.product ? productDetail : null;
+          } catch (error) {
+            console.error(`Error fetching product ${id}:`, error);
+            return null;
+          }
+        })
+      );
+      
+      return {
+        ...product,
+        productDetails: productDetails.filter(Boolean)
+      };
+    } catch (error) {
+      console.error(`Error processing product ${product?.id}:`, error);
+      return {
+        ...product,
+        productDetails: [],
+      };
+    }
+  })
+);
+data.productsWithDetails = productsWithDetails;
+
 ---
 
 <Layout>
-	<AstroComponentBuilder data={data}/>
-  <button id="error-button">Throw test error</button>
-  <script>
-    function handleClick () {
-      throw new Error('This is a test error');
-    }
-    document.querySelector("#error-button").addEventListener("click", handleClick);
-  </script>
+  <AstroComponentBuilder data={data} />
 </Layout>

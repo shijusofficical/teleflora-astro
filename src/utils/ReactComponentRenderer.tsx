@@ -30,10 +30,11 @@ interface ComponentData {
 interface Props {
   components: ComponentData[];
   additionalData: unknown;
+  productsWithDetails: any;
 
 }
 
-const DynamicRenderer: React.FC<Props> = ({ components: componentList, additionalData: additionalData }) => {
+const DynamicRenderer: React.FC<Props> = ({ components: componentList, additionalData: additionalData, productsWithDetails: productsWithDetails  }) => {
   return (
     <>
       {componentList?.map((item, index) => {
@@ -42,7 +43,7 @@ const DynamicRenderer: React.FC<Props> = ({ components: componentList, additiona
           console.warn(`Component "${item.__component}" not found.`);
           return null;
         }
-        return <Component key={index} data={item} additionalData={additionalData}/>;
+        return <Component key={index} data={item} additionalData={additionalData} productsWithDetails={productsWithDetails}/>;
       })}
     </>
   );

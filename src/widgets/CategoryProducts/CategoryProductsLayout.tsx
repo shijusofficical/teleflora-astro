@@ -1,6 +1,8 @@
-import CategoryProductItem from "@widgets/CategoryProducts/CategoryProductItem";
+import ProductCarousel from "@widgets/Products/ProductCarousel";
 
-const CategoryProductsLayout = ({ data, additionalData }: { data: any, additionalData:any }) => {
+
+const CategoryProductsLayout = ({ data, productsWithDetails }: { data: any, productsWithDetails:any }) => {
+  const productData = productsWithDetails?.filter((product:any) => product?.id == data?.id && product.heading == data?.heading);
   return (
     <div className="new-arrivals-panel">
       <div className="container">
@@ -29,7 +31,9 @@ const CategoryProductsLayout = ({ data, additionalData }: { data: any, additiona
             </div>
           </div>
           <div className="col-md-9">
-            <CategoryProductItem />
+          {productData?.map((item:any)=>(
+            <ProductCarousel productDetails={item?.productDetails}/>
+          ))}
           </div>
         </div>
       </div>
